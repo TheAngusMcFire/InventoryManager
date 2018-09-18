@@ -33,8 +33,8 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.listBoxContainer = new System.Windows.Forms.ListBox();
             this.listBoxCompartment = new System.Windows.Forms.ListBox();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.listBoxItems = new System.Windows.Forms.ListBox();
+            this.listBoxTags = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -45,10 +45,10 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonAddItems = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btmAddTag = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
@@ -109,23 +109,23 @@
             this.listBoxCompartment.Size = new System.Drawing.Size(323, 329);
             this.listBoxCompartment.TabIndex = 4;
             // 
-            // listBox3
+            // listBoxItems
             // 
-            this.listBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(0, 56);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(317, 329);
-            this.listBox3.TabIndex = 5;
+            this.listBoxItems.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.listBoxItems.FormattingEnabled = true;
+            this.listBoxItems.Location = new System.Drawing.Point(0, 56);
+            this.listBoxItems.Name = "listBoxItems";
+            this.listBoxItems.Size = new System.Drawing.Size(317, 329);
+            this.listBoxItems.TabIndex = 5;
             // 
-            // listBox4
+            // listBoxTags
             // 
-            this.listBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.Location = new System.Drawing.Point(0, 56);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(329, 329);
-            this.listBox4.TabIndex = 6;
+            this.listBoxTags.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.listBoxTags.FormattingEnabled = true;
+            this.listBoxTags.Location = new System.Drawing.Point(0, 56);
+            this.listBoxTags.Name = "listBoxTags";
+            this.listBoxTags.Size = new System.Drawing.Size(329, 329);
+            this.listBoxTags.TabIndex = 6;
             // 
             // groupBox2
             // 
@@ -247,30 +247,31 @@
             // 
             // splitContainer3.Panel1
             // 
-            this.splitContainer3.Panel1.Controls.Add(this.button4);
+            this.splitContainer3.Panel1.Controls.Add(this.buttonAddItems);
             this.splitContainer3.Panel1.Controls.Add(this.textBox4);
-            this.splitContainer3.Panel1.Controls.Add(this.listBox3);
+            this.splitContainer3.Panel1.Controls.Add(this.listBoxItems);
             this.splitContainer3.Panel1.Controls.Add(this.label1);
             // 
             // splitContainer3.Panel2
             // 
-            this.splitContainer3.Panel2.Controls.Add(this.button5);
+            this.splitContainer3.Panel2.Controls.Add(this.btmAddTag);
             this.splitContainer3.Panel2.Controls.Add(this.textBox5);
             this.splitContainer3.Panel2.Controls.Add(this.label2);
-            this.splitContainer3.Panel2.Controls.Add(this.listBox4);
+            this.splitContainer3.Panel2.Controls.Add(this.listBoxTags);
             this.splitContainer3.Size = new System.Drawing.Size(650, 385);
             this.splitContainer3.SplitterDistance = 317;
             this.splitContainer3.TabIndex = 0;
             // 
-            // button4
+            // buttonAddItems
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(272, 30);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(42, 23);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "+";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonAddItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddItems.Location = new System.Drawing.Point(272, 30);
+            this.buttonAddItems.Name = "buttonAddItems";
+            this.buttonAddItems.Size = new System.Drawing.Size(42, 23);
+            this.buttonAddItems.TabIndex = 8;
+            this.buttonAddItems.Text = "+";
+            this.buttonAddItems.UseVisualStyleBackColor = true;
+            this.buttonAddItems.Click += new System.EventHandler(this.buttonAddItems_Click);
             // 
             // textBox4
             // 
@@ -291,15 +292,16 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Items";
             // 
-            // button5
+            // btmAddTag
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.Location = new System.Drawing.Point(284, 30);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(42, 23);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "+";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btmAddTag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btmAddTag.Location = new System.Drawing.Point(284, 30);
+            this.btmAddTag.Name = "btmAddTag";
+            this.btmAddTag.Size = new System.Drawing.Size(42, 23);
+            this.btmAddTag.TabIndex = 9;
+            this.btmAddTag.Text = "+";
+            this.btmAddTag.UseVisualStyleBackColor = true;
+            this.btmAddTag.Click += new System.EventHandler(this.btmAddTag_Click);
             // 
             // textBox5
             // 
@@ -361,8 +363,8 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ListBox listBoxContainer;
         private System.Windows.Forms.ListBox listBoxCompartment;
-        private System.Windows.Forms.ListBox listBox4;
-        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox listBoxTags;
+        private System.Windows.Forms.ListBox listBoxItems;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
@@ -373,10 +375,10 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonAddItems;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btmAddTag;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label4;
     }

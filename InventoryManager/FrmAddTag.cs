@@ -12,9 +12,21 @@ namespace InventoryManager
 {
     public partial class FrmAddTag : Form
     {
-        public FrmAddTag()
+        public FrmAddTag(UInt32 id)
         {
+            TAG_ = new TAG(id, null);
             InitializeComponent();
+        }
+
+        public TAG TAG_ { get; set; }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                TAG_.NAME = textBox1.Text;
+                this.Close();
+            }
         }
     }
 }

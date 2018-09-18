@@ -48,7 +48,7 @@ namespace InventoryManager
             tmp.ShowDialog();
             inventory.CONTAINER.Add(tmp.CONTAINER);
             updateContainerList();
-        }       
+        }
 
         private void btnAddCompartment_Click(object sender, EventArgs e)
         {
@@ -64,6 +64,46 @@ namespace InventoryManager
             tmp.ShowDialog();
             inventory.COMPARTMENTS.Add(tmp.COMPARTMENT);
             updateCompartmentList();
+        }
+
+        private void btmAddTag_Click(object sender, EventArgs e)
+        {
+            FrmAddTag tmp = new FrmAddTag((UInt32)inventory.TAGS.Count);
+            tmp.ShowDialog();
+            inventory.TAGS.Add(tmp.TAG_);
+            updateTagList();
+        }
+
+        private void buttonAddItems_Click(object sender, EventArgs e)
+        {
+            if (listBoxCompartment.SelectedItem == null)
+            {
+                printError("No Container Selected");
+                return;
+            }
+
+            UInt32 compartment_id = (listBoxCompartment.SelectedItem as Compartment).ID;
+            FrmAddItem tmp = new FrmAddItem((UInt32)inventory.ITEMS.Count, compartment_id, inventory.TAGS);
+            tmp.ShowDialog();
+            inventory.ITEMS.Add(tmp.ITEM);
+        }
+
+        void updateItemList()
+        {
+            listBoxItems.Items.Clear();
+            foreach (var item in inventory.ITEMS)
+            {
+                listBoxItems.Items.Add(item);
+            }
+        }
+
+        void updateTagList()
+        {
+            listBoxTags.Items.Clear();
+            foreach (var item in inventory.TAGS)
+            {
+                listBoxTags.Items.Add(item);
+            }
         }
 
         void updateCompartmentList()

@@ -34,6 +34,11 @@ namespace InventoryManager
             this.ID = id;
             this.NAME = name;
         }
+
+        public override string ToString()
+        {
+            return string.Format("{0}     {1}", ID.ToString("X2"), NAME);
+        }
     }
 
     [Serializable]
@@ -46,15 +51,22 @@ namespace InventoryManager
         public string ADD_DESCRIPTION { get; set; }
         public List<UInt32> TAG_IDs { get; set; }
 
-        public Item(UInt32 ammount, UInt32 comp_id, string name, string add_description, List<UInt32> tag_ids)
+        public Item(UInt32 id, UInt32 ammount, UInt32 comp_id, string name, string add_description, List<UInt32> tag_ids)
         {
-            ID = 0;
+            ID = id;
             AMMOUNT = ammount;
             COMPARTMENT_ID = comp_id;
             NAME = name;
             ADD_DESCRIPTION = add_description;
             TAG_IDs = new List<uint>();
-            TAG_IDs.AddRange(tag_ids);
+
+            if(tag_ids != null)
+                TAG_IDs.AddRange(tag_ids);
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0}     {1}", ((COMPARTMENT_ID << 8) | ID).ToString("X6"), NAME);
         }
     }
 
