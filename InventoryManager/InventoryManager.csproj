@@ -60,6 +60,31 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAddCompartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddCompartment.Designer.cs">
+      <DependentUpon>FrmAddCompartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAddContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddContainer.Designer.cs">
+      <DependentUpon>FrmAddContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAddItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddItem.Designer.cs">
+      <DependentUpon>FrmAddItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAddTag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddTag.Designer.cs">
+      <DependentUpon>FrmAddTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryTypes.cs" />
     <Compile Include="LabelMakerHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,6 +94,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAddCompartment.resx">
+      <DependentUpon>FrmAddCompartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAddContainer.resx">
+      <DependentUpon>FrmAddContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAddItem.resx">
+      <DependentUpon>FrmAddItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAddTag.resx">
+      <DependentUpon>FrmAddTag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
