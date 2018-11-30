@@ -15,16 +15,17 @@ namespace InventoryManager
         public FrmAddContainer(UInt32 id)
         {
             CONTAINER = new CompartmentContainer(id);
-
             InitializeComponent();
         }
 
-        public CompartmentContainer CONTAINER { get; set; }
+        public CompartmentContainer CONTAINER { get; set; } = null;
+        public bool VALID { get; set; } = false;
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
+                VALID = true;
                 CONTAINER.NAME = textBox1.Text;
                 this.Close();
             }

@@ -1,13 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace InventoryManager
 {
     [Serializable]
-    public class Inventory
+    public class ObjectSerializer
+    {
+        public byte[] serialize(object obj)
+        {
+            using (MemoryStream mem_stream = new MemoryStream())
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(mem_stream, obj);
+                return mem_stream.ToArray();
+            }
+        }
+
+        public object deSerialize(byte[] byte_data)
+        {
+            using (MemoryStream mem_stream = new MemoryStream())
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                mem_stream.Write(byte_data, 0, byte_data.Length);
+                mem_stream.Seek(0, SeekOrigin.Begin);
+                return formatter.Deserialize(mem_stream);                
+            }
+        }
+    }
+
+    [Serializable]
+    public class Inventory : ObjectSerializer
     {
         public List<Item> ITEMS { get; set; }
         public List<TAG> TAGS { get; set; }
@@ -20,6 +47,44 @@ namespace InventoryManager
             TAGS = new List<TAG>();
             CONTAINER = new List<InventoryManager.CompartmentContainer>();
             COMPARTMENTS = new List<Compartment>();
+        }
+
+        public void save(string file_name)
+        {
+            using (BinaryWriter writer = new BinaryWriter(File.Open(file_name, FileMode.OpenOrCreate)))
+            {
+                var byte_data = this.serialize(this);
+                writer.Write(byte_data, 0, byte_data.Length);
+                writer.Flush();
+            }
+        }
+
+        public void load(string file_name)
+        {
+            using (BinaryReader reader = new BinaryReader(File.Open(file_name, FileMode.Open)))
+            {
+                var data_size = reader.BaseStream.Length;
+
+                if (data_size == 0)
+                    return;
+
+                var data_bytes = new byte[data_size];
+                reader.Read(data_bytes, 0, data_bytes.Length);
+                Inventory tmp = deSerialize(data_bytes) as Inventory;
+
+                this.ITEMS = tmp.ITEMS;
+                this.TAGS = tmp.TAGS;
+                this.CONTAINER = tmp.CONTAINER;
+                this.COMPARTMENTS = tmp.COMPARTMENTS;
+            }
+        }
+
+        public void clear()
+        {
+            COMPARTMENTS.Clear();
+            TAGS.Clear();
+            CONTAINER.Clear();
+            ITEMS.Clear();
         }
     }
 

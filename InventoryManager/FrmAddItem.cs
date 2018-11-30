@@ -20,6 +20,7 @@ namespace InventoryManager
         }
 
         public Item ITEM { get; set; }
+        public bool VALID { get; set; } = false;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -34,6 +35,7 @@ namespace InventoryManager
                     ITEM.TAG_IDs.Add((item as TAG).ID);
                 }
 
+                VALID = true;
                 this.Close();
             }
             catch (Exception exc)

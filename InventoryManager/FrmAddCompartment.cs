@@ -19,11 +19,13 @@ namespace InventoryManager
         }
 
         public Compartment COMPARTMENT { get; set; }
+        public bool VALID { get; set; } = false;
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
+                VALID = true;
                 COMPARTMENT.NAME = textBox1.Text;
                 this.Close();
             }

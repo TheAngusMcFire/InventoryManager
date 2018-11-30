@@ -19,11 +19,13 @@ namespace InventoryManager
         }
 
         public TAG TAG_ { get; set; }
+        public bool VALID { get; set; } = false;
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
+                VALID = true;
                 TAG_.NAME = textBox1.Text;
                 this.Close();
             }
