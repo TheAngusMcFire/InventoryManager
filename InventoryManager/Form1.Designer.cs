@@ -49,6 +49,16 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_id = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -62,6 +72,7 @@
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxContainer
@@ -72,7 +83,7 @@
             this.listBoxContainer.FormattingEnabled = true;
             this.listBoxContainer.Location = new System.Drawing.Point(0, 56);
             this.listBoxContainer.Name = "listBoxContainer";
-            this.listBoxContainer.Size = new System.Drawing.Size(337, 342);
+            this.listBoxContainer.Size = new System.Drawing.Size(337, 329);
             this.listBoxContainer.TabIndex = 3;
             // 
             // listBoxCompartment
@@ -83,7 +94,7 @@
             this.listBoxCompartment.FormattingEnabled = true;
             this.listBoxCompartment.Location = new System.Drawing.Point(0, 56);
             this.listBoxCompartment.Name = "listBoxCompartment";
-            this.listBoxCompartment.Size = new System.Drawing.Size(323, 342);
+            this.listBoxCompartment.Size = new System.Drawing.Size(323, 329);
             this.listBoxCompartment.TabIndex = 4;
             // 
             // listBoxItems
@@ -94,7 +105,7 @@
             this.listBoxItems.FormattingEnabled = true;
             this.listBoxItems.Location = new System.Drawing.Point(0, 56);
             this.listBoxItems.Name = "listBoxItems";
-            this.listBoxItems.Size = new System.Drawing.Size(317, 342);
+            this.listBoxItems.Size = new System.Drawing.Size(317, 329);
             this.listBoxItems.TabIndex = 5;
             // 
             // listBoxTags
@@ -105,7 +116,7 @@
             this.listBoxTags.FormattingEnabled = true;
             this.listBoxTags.Location = new System.Drawing.Point(0, 56);
             this.listBoxTags.Name = "listBoxTags";
-            this.listBoxTags.Size = new System.Drawing.Size(329, 342);
+            this.listBoxTags.Size = new System.Drawing.Size(329, 329);
             this.listBoxTags.TabIndex = 6;
             // 
             // groupBox2
@@ -116,7 +127,7 @@
             this.groupBox2.Controls.Add(this.splitContainer1);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1324, 425);
+            this.groupBox2.Size = new System.Drawing.Size(1324, 418);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Inventory";
@@ -134,7 +145,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer1.Size = new System.Drawing.Size(1318, 406);
+            this.splitContainer1.Size = new System.Drawing.Size(1318, 399);
             this.splitContainer1.SplitterDistance = 664;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -157,7 +168,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.textBox3);
             this.splitContainer2.Panel2.Controls.Add(this.label4);
             this.splitContainer2.Panel2.Controls.Add(this.listBoxCompartment);
-            this.splitContainer2.Size = new System.Drawing.Size(664, 406);
+            this.splitContainer2.Size = new System.Drawing.Size(664, 399);
             this.splitContainer2.SplitterDistance = 337;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -240,7 +251,7 @@
             this.splitContainer3.Panel2.Controls.Add(this.textBox5);
             this.splitContainer3.Panel2.Controls.Add(this.label2);
             this.splitContainer3.Panel2.Controls.Add(this.listBoxTags);
-            this.splitContainer3.Size = new System.Drawing.Size(650, 406);
+            this.splitContainer3.Size = new System.Drawing.Size(650, 399);
             this.splitContainer3.SplitterDistance = 317;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -306,7 +317,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1263, 446);
+            this.button1.Location = new System.Drawing.Point(686, 609);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
@@ -314,11 +325,109 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btn_save);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.listBox1);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.lbl_id);
+            this.groupBox1.Location = new System.Drawing.Point(12, 443);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(667, 189);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Item Details";
+            // 
+            // lbl_id
+            // 
+            this.lbl_id.AutoSize = true;
+            this.lbl_id.Location = new System.Drawing.Point(6, 51);
+            this.lbl_id.Name = "lbl_id";
+            this.lbl_id.Size = new System.Drawing.Size(21, 13);
+            this.lbl_id.TabIndex = 0;
+            this.lbl_id.Text = "ID:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 76);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Container:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 105);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Compartment:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 133);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Ammount:";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(228, 28);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(222, 147);
+            this.richTextBox1.TabIndex = 4;
+            this.richTextBox1.Text = "";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(225, 12);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(63, 13);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Description:";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(456, 28);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(205, 147);
+            this.listBox1.TabIndex = 6;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(453, 12);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(34, 13);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Tags:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 28);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(38, 13);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Name:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 481);
+            this.ClientSize = new System.Drawing.Size(1350, 645);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Name = "Form1";
@@ -341,6 +450,8 @@
             this.splitContainer3.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -367,6 +478,16 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbl_id;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label10;
     }
 }
 
