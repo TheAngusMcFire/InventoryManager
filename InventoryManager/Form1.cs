@@ -99,7 +99,7 @@ namespace InventoryManager
                 return;
             }
 
-            UInt32 container_id = (listBoxContainer.SelectedItem as CompartmentContainer).ID;
+            UInt32 container_id = (listBoxContainer.SelectedItem as Container).ID;
 
             FrmAddCompartment tmp = new FrmAddCompartment((UInt32)inventory.COMPARTMENTS.Count, container_id);
             tmp.ShowDialog();
@@ -140,7 +140,8 @@ namespace InventoryManager
             }
 
             UInt32 compartment_id = (listBoxCompartment.SelectedItem as Compartment).ID;
-            FrmAddItem tmp = new FrmAddItem((UInt32)inventory.ITEMS.Count, compartment_id, inventory.TAGS);
+            UInt32 container_id = (listBoxCompartment.SelectedItem as Compartment).CONTAINER_ID;
+            FrmAddItem tmp = new FrmAddItem((UInt32)inventory.ITEMS.Count, compartment_id, container_id, inventory.TAGS);
             tmp.ShowDialog();
 
             if (tmp.VALID)
@@ -170,30 +171,66 @@ namespace InventoryManager
             }
         }
 
-        void updateTagList()
+        void updateTagList(string filter = null)
         {
             listBoxTags.Items.Clear();
-            foreach (var item in inventory.TAGS)
+
+            if (filter == null)
             {
-                listBoxTags.Items.Add(item);
+                foreach (var item in inventory.TAGS)
+                {
+                    listBoxTags.Items.Add(item);
+                }
             }
+            else
+            {
+                foreach (var item in inventory.TAGS)
+                {
+                    if(item.ToString().Contains(filter))
+                        listBoxTags.Items.Add(item);
+                }
+            }            
         }
 
-        void updateCompartmentList()
+        void updateCompartmentList(string filter = null)
         {
             listBoxCompartment.Items.Clear();
-            foreach (var item in inventory.COMPARTMENTS)
+
+            if (filter == null)
             {
-                listBoxCompartment.Items.Add(item);
+                foreach (var item in inventory.COMPARTMENTS)
+                {
+                    listBoxCompartment.Items.Add(item);
+                }
             }
+            else
+            {
+                foreach (var item in inventory.COMPARTMENTS)
+                {
+                    if(item.ToString().Contains(filter))
+                        listBoxCompartment.Items.Add(item);
+                }
+            }            
         }
 
-        void updateContainerList()
+        void updateContainerList(string filter = null)
         {
             listBoxContainer.Items.Clear();
-            foreach (var item in inventory.CONTAINER)
+
+            if (filter == null)
             {
-                listBoxContainer.Items.Add(item);
+                foreach (var item in inventory.CONTAINER)
+                {
+                    listBoxContainer.Items.Add(item);
+                }
+            }
+            else
+            {
+                foreach (var item in inventory.CONTAINER)
+                {
+                    if (item.ToString().Contains(filter))
+                        listBoxContainer.Items.Add(item);
+                }
             }
         }
 
@@ -235,6 +272,14 @@ namespace InventoryManager
             catch (Exception exc)
             {
                 printError("Error while saving", exc);
+            }
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
             }
         }
     }

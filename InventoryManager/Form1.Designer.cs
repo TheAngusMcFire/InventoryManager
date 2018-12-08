@@ -50,15 +50,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lbl_id = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbl_id = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -80,10 +80,12 @@
             this.listBoxContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxContainer.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxContainer.FormattingEnabled = true;
+            this.listBoxContainer.ItemHeight = 14;
             this.listBoxContainer.Location = new System.Drawing.Point(0, 56);
             this.listBoxContainer.Name = "listBoxContainer";
-            this.listBoxContainer.Size = new System.Drawing.Size(337, 329);
+            this.listBoxContainer.Size = new System.Drawing.Size(337, 326);
             this.listBoxContainer.TabIndex = 3;
             // 
             // listBoxCompartment
@@ -91,10 +93,12 @@
             this.listBoxCompartment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxCompartment.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxCompartment.FormattingEnabled = true;
+            this.listBoxCompartment.ItemHeight = 14;
             this.listBoxCompartment.Location = new System.Drawing.Point(0, 56);
             this.listBoxCompartment.Name = "listBoxCompartment";
-            this.listBoxCompartment.Size = new System.Drawing.Size(323, 329);
+            this.listBoxCompartment.Size = new System.Drawing.Size(323, 326);
             this.listBoxCompartment.TabIndex = 4;
             // 
             // listBoxItems
@@ -102,10 +106,12 @@
             this.listBoxItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxItems.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxItems.FormattingEnabled = true;
+            this.listBoxItems.ItemHeight = 14;
             this.listBoxItems.Location = new System.Drawing.Point(0, 56);
             this.listBoxItems.Name = "listBoxItems";
-            this.listBoxItems.Size = new System.Drawing.Size(317, 329);
+            this.listBoxItems.Size = new System.Drawing.Size(317, 326);
             this.listBoxItems.TabIndex = 5;
             // 
             // listBoxTags
@@ -113,10 +119,12 @@
             this.listBoxTags.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxTags.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxTags.FormattingEnabled = true;
+            this.listBoxTags.ItemHeight = 14;
             this.listBoxTags.Location = new System.Drawing.Point(0, 56);
             this.listBoxTags.Name = "listBoxTags";
-            this.listBoxTags.Size = new System.Drawing.Size(329, 329);
+            this.listBoxTags.Size = new System.Drawing.Size(329, 326);
             this.listBoxTags.TabIndex = 6;
             // 
             // groupBox2
@@ -191,6 +199,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(283, 20);
             this.textBox2.TabIndex = 5;
+            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
             // 
             // label3
             // 
@@ -327,6 +336,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.listBox1);
@@ -343,66 +353,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item Details";
             // 
-            // lbl_id
+            // label10
             // 
-            this.lbl_id.AutoSize = true;
-            this.lbl_id.Location = new System.Drawing.Point(6, 51);
-            this.lbl_id.Name = "lbl_id";
-            this.lbl_id.Size = new System.Drawing.Size(21, 13);
-            this.lbl_id.TabIndex = 0;
-            this.lbl_id.Text = "ID:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 76);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Container:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 105);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Compartment:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 133);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 13);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Ammount:";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(228, 28);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(222, 147);
-            this.richTextBox1.TabIndex = 4;
-            this.richTextBox1.Text = "";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(225, 12);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 13);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "Description:";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(456, 28);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(205, 147);
-            this.listBox1.TabIndex = 6;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 28);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(38, 13);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Name:";
             // 
             // label9
             // 
@@ -413,14 +371,69 @@
             this.label9.TabIndex = 7;
             this.label9.Text = "Tags:";
             // 
-            // label10
+            // listBox1
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 28);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(38, 13);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Name:";
+            this.listBox1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 14;
+            this.listBox1.Location = new System.Drawing.Point(456, 28);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(205, 144);
+            this.listBox1.TabIndex = 6;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(225, 12);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(63, 13);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Description:";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(228, 28);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(222, 147);
+            this.richTextBox1.TabIndex = 4;
+            this.richTextBox1.Text = "";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 133);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Ammount:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 105);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Compartment:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 76);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Container:";
+            // 
+            // lbl_id
+            // 
+            this.lbl_id.AutoSize = true;
+            this.lbl_id.Location = new System.Drawing.Point(6, 51);
+            this.lbl_id.Name = "lbl_id";
+            this.lbl_id.Size = new System.Drawing.Size(21, 13);
+            this.lbl_id.TabIndex = 0;
+            this.lbl_id.Text = "ID:";
             // 
             // Form1
             // 

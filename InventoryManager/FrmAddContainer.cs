@@ -14,11 +14,11 @@ namespace InventoryManager
     {
         public FrmAddContainer(UInt32 id)
         {
-            CONTAINER = new CompartmentContainer(id);
+            CONTAINER = new Container(id);
             InitializeComponent();
         }
 
-        public CompartmentContainer CONTAINER { get; set; } = null;
+        public Container CONTAINER { get; set; } = null;
         public bool VALID { get; set; } = false;
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)

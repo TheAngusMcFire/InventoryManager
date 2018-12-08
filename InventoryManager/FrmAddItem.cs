@@ -12,9 +12,9 @@ namespace InventoryManager
 {
     public partial class FrmAddItem : Form
     {
-        public FrmAddItem(UInt32 id, UInt32 compartment_id,List<TAG> tags)
+        public FrmAddItem(UInt32 id, UInt32 compartment_id, UInt32 container_id, List<TAG> tags)
         {
-            ITEM = new Item(id, 0, compartment_id, null, null, null);
+            ITEM = new Item(id, 0, compartment_id, container_id, null, null, null);
             InitializeComponent();
             listBox1.Items.AddRange(tags.ToArray());
         }

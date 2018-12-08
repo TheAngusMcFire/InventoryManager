@@ -38,14 +38,14 @@ namespace InventoryManager
     {
         public List<Item> ITEMS { get; set; }
         public List<TAG> TAGS { get; set; }
-        public List<CompartmentContainer> CONTAINER { get; set; }
+        public List<Container> CONTAINER { get; set; }
         public List<Compartment> COMPARTMENTS { get; set; }
 
         public Inventory()
         {
             ITEMS = new List<Item>();
             TAGS = new List<TAG>();
-            CONTAINER = new List<InventoryManager.CompartmentContainer>();
+            CONTAINER = new List<InventoryManager.Container>();
             COMPARTMENTS = new List<Compartment>();
         }
 
@@ -102,7 +102,7 @@ namespace InventoryManager
 
         public override string ToString()
         {
-            return string.Format("{0}     {1}", ID.ToString("X2"), NAME);
+            return string.Format("{0,10}   {1}", ID.ToString("X2"), NAME);
         }
     }
 
@@ -110,17 +110,20 @@ namespace InventoryManager
     public class Item
     {
         public UInt32 ID { get; set; }
-        public UInt32 AMMOUNT { get; set; }
         public UInt32 COMPARTMENT_ID { get; set; }
+        public UInt32 CONTAINER_ID { get; set; }
+
+        public UInt32 AMMOUNT { get; set; }
         public string NAME { get; set; }
         public string ADD_DESCRIPTION { get; set; }
         public List<UInt32> TAG_IDs { get; set; }
 
-        public Item(UInt32 id, UInt32 ammount, UInt32 comp_id, string name, string add_description, List<UInt32> tag_ids)
+        public Item(UInt32 id, UInt32 ammount, UInt32 comp_id, UInt32 container_id, string name, string add_description, List<UInt32> tag_ids)
         {
             ID = id;
             AMMOUNT = ammount;
             COMPARTMENT_ID = comp_id;
+            CONTAINER_ID = container_id;
             NAME = name;
             ADD_DESCRIPTION = add_description;
             TAG_IDs = new List<uint>();
@@ -131,24 +134,7 @@ namespace InventoryManager
 
         public override string ToString()
         {
-            return string.Format("{0}     {1}", ((COMPARTMENT_ID << 8) | ID).ToString("X6"), NAME);
-        }
-    }
-
-    [Serializable]
-    public class CompartmentContainer
-    {
-        public UInt32 ID { get; set; }
-        public string NAME { get; set; }
-        public CompartmentContainer(UInt32 id, string name = null)
-        {
-            ID = id;
-            NAME = name;
-        }
-
-        public override string ToString()
-        {
-            return string.Format("{0}     {1}", ID.ToString("X2"), NAME);
+            return string.Format("{0,10}   {1}", ((CONTAINER_ID << 24) | (COMPARTMENT_ID << 12) | ID).ToString("X6"), NAME);
         }
     }
 
@@ -168,7 +154,25 @@ namespace InventoryManager
 
         public override string ToString()
         {
-            return string.Format("{0}     {1}", ((CONTAINER_ID << 8) | ID).ToString("X4"), NAME);
+            return string.Format("{0,10}   {1}", ((CONTAINER_ID << 12) | ID).ToString("X4"), NAME);
+        }
+    }
+
+    [Serializable]
+    public class Container
+    {
+        public UInt32 ID { get; set; }
+
+        public string NAME { get; set; }
+        public Container(UInt32 id, string name = null)
+        {
+            ID = id;
+            NAME = name;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0,10}   {1}", ID.ToString("X2"), NAME);
         }
     }
 }
