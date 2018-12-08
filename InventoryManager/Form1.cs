@@ -64,8 +64,8 @@ namespace InventoryManager
             updateAllLists();
 
             //DialogResult dialogResult = MessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo); 
-            //lbl_handler = new LabelMakerHandler();
-            //lbl_handler.init();
+            lbl_handler = new LabelMakerHandler();
+            lbl_handler.init();
         }
 
         #region btn add event handlers
@@ -162,12 +162,23 @@ namespace InventoryManager
             updateContainerList();
         }
 
-        void updateItemList()
+        void updateItemList(string filter = null)
         {
             listBoxItems.Items.Clear();
-            foreach (var item in inventory.ITEMS)
+            if(filter == null)
             {
-                listBoxItems.Items.Add(item);
+                foreach (var item in inventory.ITEMS)
+                {
+                    listBoxItems.Items.Add(item);
+                }
+            }
+            else
+            {
+                foreach (var item in inventory.ITEMS)
+                {
+                    if(item.ToString().Contains(filter))
+                        listBoxItems.Items.Add(item);
+                }
             }
         }
 
@@ -236,23 +247,6 @@ namespace InventoryManager
 
         #endregion
 
-        public void saveFile()
-        {
-
-        }
-
-        private void btn_tmp_print(object sender, EventArgs e)
-        {
-            if (lbl_handler == null)
-            {
-                printError("Error printer needs to be initialized");
-                return;
-            }
-
-            //lbl_handler.printLabel(richTextBox1.Text);
-        }
-
-
         /// <summary>
         /// prints error mesagebox if exception is not null trace is printed
         /// </summary>
@@ -275,12 +269,128 @@ namespace InventoryManager
             }
         }
 
-        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        private void textBoxContainerKeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-
+                if(textBox_container.Text != "")
+                    updateContainerList(textBox_container.Text);
+                else
+                    updateContainerList();
             }
+
+            if (e.KeyCode == Keys.Escape)
+                textBox_container.Text = "";
+        }
+
+        private void textBox_compartment_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if(textBox_compartment.Text != "")
+                    updateCompartmentList(textBox_compartment.Text);
+                else
+                    updateCompartmentList();
+            }
+
+            if (e.KeyCode == Keys.Escape)
+                textBox_compartment.Text = "";
+        }
+
+        private void textBox_items_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if(textBox_items.Text != "")
+                    updateItemList(textBox_items.Text);
+                else
+                    updateItemList();
+            }
+
+            if (e.KeyCode == Keys.Escape)
+                (sender as TextBox).Text = "";
+        }
+
+        private void textBox_tags_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if(textBox_tags.Text != "")
+                    updateTagList(textBox_tags.Text);
+                else
+                    updateTagList();
+            }
+
+            if (e.KeyCode == Keys.Escape)
+                (sender as TextBox).Text = "";
+        }
+
+        private void listBoxItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var item = (listBoxItems.SelectedItem as Item);
+
+            label_item_ammount.Text = item.AMMOUNT.ToString();
+
+            label_item_compartment.Text = inventory.getEntryById<Compartment>(item.COMPARTMENT_ID).ToString();
+            label_item_container.Text = inventory.getEntryById<Container>(item.CONTAINER_ID).ToString();
+
+            label_item_id.Text = item.ID.ToString();
+            label_item_name.Text = item.NAME;
+            richTextBox_item_description.Text = item.ADD_DESCRIPTION;
+            listBox_item_tags.Items.Clear();
+
+            foreach (var tag_id in item.TAG_IDs)
+            {
+                listBox_item_tags.Items.Add(inventory.getEntryById<TAG>(tag_id));
+            }
+        }
+
+        private void button_print_Click(object sender, EventArgs e)
+        {
+            if (lbl_handler == null)
+            {
+                printError("Error printer needs to be initialized");
+                return;
+            }
+
+            var item = (listBoxItems.SelectedItem as Item);
+
+            if (item == null)
+                return;
+
+            lbl_handler.printLabel(item.getPrintString());
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (lbl_handler == null)
+            {
+                printError("Error printer needs to be initialized");
+                return;
+            }
+
+            var item = (listBoxContainer.SelectedItem as Container);
+
+            if (item == null)
+                return;
+
+            lbl_handler.printLabel(item.getPrintString());
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (lbl_handler == null)
+            {
+                printError("Error printer needs to be initialized");
+                return;
+            }
+
+            var item = (listBoxCompartment.SelectedItem as Compartment);
+
+            if (item == null)
+                return;
+
+            lbl_handler.printLabel(item.getPrintString());
         }
     }
 }

@@ -182,7 +182,7 @@
 			&lt;IsOutlined&gt;False&lt;/IsOutlined&gt;
 			&lt;HorizontalAlignment&gt;Center&lt;/HorizontalAlignment&gt;
 			&lt;VerticalAlignment&gt;Middle&lt;/VerticalAlignment&gt;
-			&lt;TextFitMode&gt;AlwaysFit&lt;/TextFitMode&gt;
+			&lt;TextFitMode&gt;ShrinkToFit&lt;/TextFitMode&gt;
 			&lt;UseFullFontHeight&gt;True&lt;/UseFullFontHeight&gt;
 			&lt;Verticalized&gt;False&lt;/Verticalized&gt;
             
@@ -190,7 +190,7 @@
 				&lt;Element&gt;
 					&lt;String xml:space="preserve"&gt;test&lt;/String&gt;
 					&lt;Attributes&gt;
-						&lt;Font Family="Arial" Size="20" Bold="False" Italic="False" Underline="False" Strikeout="False" /&gt;
+						&lt;Font Family="Arial" Size="11" Bold="False" Italic="False" Underline="False" Strikeout="False" /&gt;
 						&lt;ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" /&gt;
 					&lt;/Attributes&gt;
 				&lt;/Element&gt;

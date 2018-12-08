@@ -49,6 +49,57 @@ namespace InventoryManager
             COMPARTMENTS = new List<Compartment>();
         }
 
+        public enum InventoryType
+        {
+            Item, Tag, Container, Compartment, 
+        }
+
+        /// <summary>
+        /// omg, worst generic ever
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public T getEntryById<T>(UInt32 id)
+        {
+            object tmp = null;          
+
+            if (typeof(T) == typeof(Item))
+            {
+                var it = ITEMS.Where(l => l.ID == id);
+
+                if (it.Count() == 1)
+                    tmp = (it.ToArray()[0]);
+            }
+            else if (typeof(T) == typeof(TAG))
+            {
+                var it = TAGS.Where(l => l.ID == id);
+
+                if (it.Count() == 1)
+                    tmp = (it.ToArray()[0]);
+            }
+            else if (typeof(T) == typeof(Container))
+            {
+                var it = CONTAINER.Where(l => l.ID == id);
+
+                if (it.Count() == 1)
+                    tmp = (it.ToArray()[0]);
+            }
+            else if (typeof(T) == typeof(Compartment))
+            {
+                var it = COMPARTMENTS.Where(l => l.ID == id);
+
+                if (it.Count() == 1)
+                    tmp = (it.ToArray()[0]);
+            }
+            else
+            {
+                throw new Exception();
+            }
+
+             return (T)tmp;
+        }
+
         public void save(string file_name)
         {
             using (BinaryWriter writer = new BinaryWriter(File.Open(file_name, FileMode.OpenOrCreate)))
@@ -78,6 +129,8 @@ namespace InventoryManager
                 this.COMPARTMENTS = tmp.COMPARTMENTS;
             }
         }
+
+        
 
         public void clear()
         {
@@ -132,6 +185,11 @@ namespace InventoryManager
                 TAG_IDs.AddRange(tag_ids);
         }
 
+        public string getPrintString()
+        {
+            return string.Format("{0}: {1}", ((CONTAINER_ID << 24) | (COMPARTMENT_ID << 12) | ID).ToString("X6"), NAME);
+        }
+
         public override string ToString()
         {
             return string.Format("{0,10}   {1}", ((CONTAINER_ID << 24) | (COMPARTMENT_ID << 12) | ID).ToString("X6"), NAME);
@@ -152,6 +210,11 @@ namespace InventoryManager
             NAME = name;
         }
 
+        public string getPrintString()
+        {
+            return string.Format("{0}: {1}", ((CONTAINER_ID << 12) | ID).ToString("X4"), NAME);
+        }
+
         public override string ToString()
         {
             return string.Format("{0,10}   {1}", ((CONTAINER_ID << 12) | ID).ToString("X4"), NAME);
@@ -168,6 +231,11 @@ namespace InventoryManager
         {
             ID = id;
             NAME = name;
+        }
+
+        public string getPrintString()
+        {
+            return string.Format("{0}: {1}", ID.ToString("X2"), NAME);
         }
 
         public override string ToString()
