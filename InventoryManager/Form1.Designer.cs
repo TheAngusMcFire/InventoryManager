@@ -65,9 +65,13 @@
             this.label_item_container = new System.Windows.Forms.Label();
             this.label_item_id = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button_print = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button_print = new System.Windows.Forms.Button();
+            this.button_sort_tags = new System.Windows.Forms.Button();
+            this.btn_edit_item = new System.Windows.Forms.Button();
+            this.btn_edit_comartment = new System.Windows.Forms.Button();
+            this.btn_edit_container = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -108,7 +112,7 @@
             this.listBoxCompartment.ItemHeight = 14;
             this.listBoxCompartment.Location = new System.Drawing.Point(0, 60);
             this.listBoxCompartment.Name = "listBoxCompartment";
-            this.listBoxCompartment.Size = new System.Drawing.Size(376, 340);
+            this.listBoxCompartment.Size = new System.Drawing.Size(375, 340);
             this.listBoxCompartment.TabIndex = 4;
             // 
             // listBoxItems
@@ -135,7 +139,7 @@
             this.listBoxTags.ItemHeight = 14;
             this.listBoxTags.Location = new System.Drawing.Point(0, 60);
             this.listBoxTags.Name = "listBoxTags";
-            this.listBoxTags.Size = new System.Drawing.Size(383, 340);
+            this.listBoxTags.Size = new System.Drawing.Size(382, 340);
             this.listBoxTags.TabIndex = 6;
             // 
             // groupBox2
@@ -177,6 +181,7 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.btn_edit_container);
             this.splitContainer2.Panel1.Controls.Add(this.button2);
             this.splitContainer2.Panel1.Controls.Add(this.textBox_container);
             this.splitContainer2.Panel1.Controls.Add(this.label3);
@@ -184,6 +189,7 @@
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.btn_edit_comartment);
             this.splitContainer2.Panel2.Controls.Add(this.button3);
             this.splitContainer2.Panel2.Controls.Add(this.textBox_compartment);
             this.splitContainer2.Panel2.Controls.Add(this.label4);
@@ -227,7 +233,7 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(324, 32);
+            this.button3.Location = new System.Drawing.Point(323, 32);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(49, 25);
             this.button3.TabIndex = 8;
@@ -241,7 +247,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_compartment.Location = new System.Drawing.Point(3, 32);
             this.textBox_compartment.Name = "textBox_compartment";
-            this.textBox_compartment.Size = new System.Drawing.Size(313, 20);
+            this.textBox_compartment.Size = new System.Drawing.Size(312, 20);
             this.textBox_compartment.TabIndex = 6;
             this.textBox_compartment.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_compartment_KeyDown);
             // 
@@ -263,6 +269,7 @@
             // 
             // splitContainer3.Panel1
             // 
+            this.splitContainer3.Panel1.Controls.Add(this.btn_edit_item);
             this.splitContainer3.Panel1.Controls.Add(this.buttonAddItems);
             this.splitContainer3.Panel1.Controls.Add(this.textBox_items);
             this.splitContainer3.Panel1.Controls.Add(this.listBoxItems);
@@ -270,6 +277,7 @@
             // 
             // splitContainer3.Panel2
             // 
+            this.splitContainer3.Panel2.Controls.Add(this.button_sort_tags);
             this.splitContainer3.Panel2.Controls.Add(this.btmAddTag);
             this.splitContainer3.Panel2.Controls.Add(this.textBox_tags);
             this.splitContainer3.Panel2.Controls.Add(this.label2);
@@ -313,7 +321,7 @@
             // btmAddTag
             // 
             this.btmAddTag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btmAddTag.Location = new System.Drawing.Point(331, 32);
+            this.btmAddTag.Location = new System.Drawing.Point(330, 32);
             this.btmAddTag.Name = "btmAddTag";
             this.btmAddTag.Size = new System.Drawing.Size(49, 25);
             this.btmAddTag.TabIndex = 9;
@@ -327,7 +335,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_tags.Location = new System.Drawing.Point(3, 32);
             this.textBox_tags.Name = "textBox_tags";
-            this.textBox_tags.Size = new System.Drawing.Size(320, 20);
+            this.textBox_tags.Size = new System.Drawing.Size(319, 20);
             this.textBox_tags.TabIndex = 8;
             this.textBox_tags.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_tags_KeyDown);
             // 
@@ -517,15 +525,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Controls";
             // 
-            // button_print
+            // button5
             // 
-            this.button_print.Location = new System.Drawing.Point(21, 132);
-            this.button_print.Name = "button_print";
-            this.button_print.Size = new System.Drawing.Size(182, 25);
-            this.button_print.TabIndex = 8;
-            this.button_print.Text = "print item label";
-            this.button_print.UseVisualStyleBackColor = true;
-            this.button_print.Click += new System.EventHandler(this.button_print_Click);
+            this.button5.Location = new System.Drawing.Point(21, 71);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(182, 25);
+            this.button5.TabIndex = 10;
+            this.button5.Text = "print container label";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -537,15 +545,63 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // button_print
             // 
-            this.button5.Location = new System.Drawing.Point(21, 71);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(182, 25);
-            this.button5.TabIndex = 10;
-            this.button5.Text = "print container label";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button_print.Location = new System.Drawing.Point(21, 132);
+            this.button_print.Name = "button_print";
+            this.button_print.Size = new System.Drawing.Size(182, 25);
+            this.button_print.TabIndex = 8;
+            this.button_print.Text = "print item label";
+            this.button_print.UseVisualStyleBackColor = true;
+            this.button_print.Click += new System.EventHandler(this.button_print_Click);
+            // 
+            // button_sort_tags
+            // 
+            this.button_sort_tags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_sort_tags.Location = new System.Drawing.Point(3, 405);
+            this.button_sort_tags.Name = "button_sort_tags";
+            this.button_sort_tags.Size = new System.Drawing.Size(376, 23);
+            this.button_sort_tags.TabIndex = 10;
+            this.button_sort_tags.Text = "sort after tgas";
+            this.button_sort_tags.UseVisualStyleBackColor = true;
+            this.button_sort_tags.Click += new System.EventHandler(this.button_sort_tags_Click);
+            // 
+            // btn_edit_item
+            // 
+            this.btn_edit_item.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_edit_item.Location = new System.Drawing.Point(3, 405);
+            this.btn_edit_item.Name = "btn_edit_item";
+            this.btn_edit_item.Size = new System.Drawing.Size(364, 23);
+            this.btn_edit_item.TabIndex = 11;
+            this.btn_edit_item.Text = "edit item";
+            this.btn_edit_item.UseVisualStyleBackColor = true;
+            this.btn_edit_item.Click += new System.EventHandler(this.btn_edit_item_Click);
+            // 
+            // btn_edit_comartment
+            // 
+            this.btn_edit_comartment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_edit_comartment.Location = new System.Drawing.Point(7, 405);
+            this.btn_edit_comartment.Name = "btn_edit_comartment";
+            this.btn_edit_comartment.Size = new System.Drawing.Size(365, 23);
+            this.btn_edit_comartment.TabIndex = 11;
+            this.btn_edit_comartment.Text = "edit compartment";
+            this.btn_edit_comartment.UseVisualStyleBackColor = true;
+            this.btn_edit_comartment.Click += new System.EventHandler(this.btn_edit_comartment_Click);
+            // 
+            // btn_edit_container
+            // 
+            this.btn_edit_container.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_edit_container.Location = new System.Drawing.Point(3, 405);
+            this.btn_edit_container.Name = "btn_edit_container";
+            this.btn_edit_container.Size = new System.Drawing.Size(388, 23);
+            this.btn_edit_container.TabIndex = 14;
+            this.btn_edit_container.Text = "edit container";
+            this.btn_edit_container.UseVisualStyleBackColor = true;
+            this.btn_edit_container.Click += new System.EventHandler(this.btn_edit_container_Click);
             // 
             // Form1
             // 
@@ -624,6 +680,10 @@
         private System.Windows.Forms.Button button_print;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button_sort_tags;
+        private System.Windows.Forms.Button btn_edit_container;
+        private System.Windows.Forms.Button btn_edit_comartment;
+        private System.Windows.Forms.Button btn_edit_item;
     }
 }
 

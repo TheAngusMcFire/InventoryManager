@@ -19,6 +19,22 @@ namespace InventoryManager
             listBox1.Items.AddRange(tags.ToArray());
         }
 
+        public FrmAddItem(Item it, List<TAG> tags)
+        {
+            ITEM = it;
+            InitializeComponent();
+            textBoxName.Text = it.NAME;
+            textBoxAmmount.Text = $"{it.AMMOUNT}";
+            richTextBox1.Text = it.ADD_DESCRIPTION;
+
+            listBox1.Items.AddRange(tags.ToArray());
+
+            foreach (var ite in it.TAG_IDs)
+            {   
+                listBox1.SetSelected((int)ite, true);
+            }
+        }
+
         public Item ITEM { get; set; }
         public bool VALID { get; set; } = false;
 
@@ -29,6 +45,8 @@ namespace InventoryManager
                 ITEM.AMMOUNT = Convert.ToUInt32(textBoxAmmount.Text);
                 ITEM.NAME = textBoxName.Text;
                 ITEM.ADD_DESCRIPTION = richTextBox1.Text;
+
+                ITEM.TAG_IDs.Clear();
 
                 foreach (var item in listBox1.SelectedItems)
                 {

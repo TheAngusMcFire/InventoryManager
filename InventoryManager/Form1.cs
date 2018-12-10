@@ -26,13 +26,13 @@ namespace InventoryManager
         }
 
         public void loadOrInitFile()
-         {
+        {
             try
             {
                 if (File.Exists(file_name))
                 {
                     inventory.load(file_name);
-                    
+
                 }
                 else
                     inventory.save(file_name);
@@ -51,8 +51,8 @@ namespace InventoryManager
                 OpenFileDialog dia = new OpenFileDialog();
                 DialogResult result = dia.ShowDialog();
 
-                if (result == DialogResult.OK)                
-                    file_name = dia.FileName;                
+                if (result == DialogResult.OK)
+                    file_name = dia.FileName;
                 else
                 {
                     printError("Error no file provided or selected");
@@ -165,7 +165,7 @@ namespace InventoryManager
         void updateItemList(string filter = null)
         {
             listBoxItems.Items.Clear();
-            if(filter == null)
+            if (filter == null)
             {
                 foreach (var item in inventory.ITEMS)
                 {
@@ -176,9 +176,20 @@ namespace InventoryManager
             {
                 foreach (var item in inventory.ITEMS)
                 {
-                    if(item.ToString().Contains(filter))
+                    if (item.ToString().Contains(filter))
                         listBoxItems.Items.Add(item);
                 }
+            }
+        }
+
+        void updateItemList(TAG tag)
+        {
+            listBoxItems.Items.Clear();
+
+            foreach (var item in inventory.ITEMS)
+            {
+                if (item.TAG_IDs.Contains(tag.ID))
+                    listBoxItems.Items.Add(item);
             }
         }
 
@@ -197,10 +208,10 @@ namespace InventoryManager
             {
                 foreach (var item in inventory.TAGS)
                 {
-                    if(item.ToString().Contains(filter))
+                    if (item.ToString().Contains(filter))
                         listBoxTags.Items.Add(item);
                 }
-            }            
+            }
         }
 
         void updateCompartmentList(string filter = null)
@@ -218,10 +229,10 @@ namespace InventoryManager
             {
                 foreach (var item in inventory.COMPARTMENTS)
                 {
-                    if(item.ToString().Contains(filter))
+                    if (item.ToString().Contains(filter))
                         listBoxCompartment.Items.Add(item);
                 }
-            }            
+            }
         }
 
         void updateContainerList(string filter = null)
@@ -273,7 +284,7 @@ namespace InventoryManager
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if(textBox_container.Text != "")
+                if (textBox_container.Text != "")
                     updateContainerList(textBox_container.Text);
                 else
                     updateContainerList();
@@ -287,7 +298,7 @@ namespace InventoryManager
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if(textBox_compartment.Text != "")
+                if (textBox_compartment.Text != "")
                     updateCompartmentList(textBox_compartment.Text);
                 else
                     updateCompartmentList();
@@ -301,7 +312,7 @@ namespace InventoryManager
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if(textBox_items.Text != "")
+                if (textBox_items.Text != "")
                     updateItemList(textBox_items.Text);
                 else
                     updateItemList();
@@ -315,7 +326,7 @@ namespace InventoryManager
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if(textBox_tags.Text != "")
+                if (textBox_tags.Text != "")
                     updateTagList(textBox_tags.Text);
                 else
                     updateTagList();
@@ -328,6 +339,9 @@ namespace InventoryManager
         private void listBoxItems_SelectedIndexChanged(object sender, EventArgs e)
         {
             var item = (listBoxItems.SelectedItem as Item);
+
+            if (item == null)
+                return;
 
             label_item_ammount.Text = item.AMMOUNT.ToString();
 
@@ -391,6 +405,68 @@ namespace InventoryManager
                 return;
 
             lbl_handler.printLabel(item.getPrintString());
+        }
+
+        private void button_sort_tags_Click(object sender, EventArgs e)
+        {
+            var obj = listBoxTags.SelectedItem;
+
+            if (obj == null)
+            {
+                updateAllLists();
+                return;
+            }
+
+            updateItemList(obj as TAG);
+        }
+
+        private void btn_edit_container_Click(object sender, EventArgs e)
+        {
+            var obj = listBoxContainer.SelectedItem as Container;
+
+            if (obj == null)
+                return;
+
+            FrmAddContainer tmp = new FrmAddContainer(obj);
+
+            tmp.ShowDialog();
+
+            //if (tmp.VALID)
+            //    inventory.CONTAINER.Add(tmp.CONTAINER);
+
+            updateContainerList();
+        }
+
+        private void btn_edit_comartment_Click(object sender, EventArgs e)
+        {
+            var comp = listBoxCompartment.SelectedItem as Compartment;
+
+            if (comp == null)
+                return;
+
+            FrmAddCompartment tmp = new FrmAddCompartment(comp);
+            tmp.ShowDialog();
+
+            //if (tmp.VALID)
+            //    inventory.COMPARTMENTS.Add(tmp.COMPARTMENT);
+
+            updateCompartmentList();
+        }
+
+        private void btn_edit_item_Click(object sender, EventArgs e)
+        {
+            var item = listBoxItems.SelectedItem as Item;
+
+            if (item == null)
+                return;
+
+            FrmAddItem tmp = new FrmAddItem(item, inventory.TAGS);
+            tmp.ShowDialog();
+
+            //if (tmp.VALID)
+            //    inventory.ITEMS.Add(tmp.ITEM);
+
+            updateItemList();
         }
     }
 }

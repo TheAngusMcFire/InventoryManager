@@ -18,6 +18,13 @@ namespace InventoryManager
             InitializeComponent();
         }
 
+        public FrmAddCompartment(Compartment comp)
+        {
+            COMPARTMENT = comp;
+            InitializeComponent();
+            textBox1.Text = COMPARTMENT.NAME;
+        }
+
         public Compartment COMPARTMENT { get; set; }
         public bool VALID { get; set; } = false;
 

@@ -59,6 +59,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmAddContainer";
             this.Text = "FrmAddContainer";
+            this.Load += new System.EventHandler(this.FrmAddContainer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

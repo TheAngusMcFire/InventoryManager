@@ -18,6 +18,13 @@ namespace InventoryManager
             InitializeComponent();
         }
 
+        public FrmAddContainer(Container container)
+        {
+            CONTAINER = container;
+            InitializeComponent();
+            textBox1.Text = CONTAINER.NAME;
+        }
+
         public Container CONTAINER { get; set; } = null;
         public bool VALID { get; set; } = false;
 
@@ -29,6 +36,11 @@ namespace InventoryManager
                 CONTAINER.NAME = textBox1.Text;
                 this.Close();
             }
+        }
+
+        private void FrmAddContainer_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
